@@ -1,9 +1,10 @@
 const pg = require('pg');
 
 const config = {
-  user: 'postgres',
-  host: '127.0.0.1',
+  user: 'bossgecko',
+  host: 'foodgecko.cwrecbvhyp5w.us-east-2.rds.amazonaws.com',
   database: 'foodgecko',
+  password: '123gecko',
   port: 5432
 };
 

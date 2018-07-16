@@ -30,7 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 //    ROUTES    //
 //////////////////
 app.get('/login', controller.getLogin);
-app.get('register', controller.getRegister);
+app.get('/register', controller.getRegister);
+app.post('/register', controller.postRegister);
 
 app.get('/', (req, res) => { res.render('home') });
 app.get('*', (req, res) => { res.sendStatus(404) });
