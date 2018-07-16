@@ -37,5 +37,10 @@ module.exports = {
       		response.render('register', {message:"E-mail is already in use."})
     		} 
     	}); // FIRST SQL QUERY
+	},
+
+	setup : (req, res) => {
+		res.render('setup')
 	}
+
 }

@@ -32,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/login', controller.getLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
+app.get('/setup', controller.setup);
 
 app.get('/', (req, res) => { res.render('home') });
 app.get('*', (req, res) => { res.sendStatus(404) });
