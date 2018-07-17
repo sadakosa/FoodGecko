@@ -15,11 +15,14 @@
   </style>
 
 <div class="ui middle aligned center aligned grid">
-  <div class="column" id='body'>
+  <div class="column ten wide" id='body'>
+    <fieldset>
+      <label for="tableNo">Number of Tables:</label>
+      <input type="number" id="tableNo" name="height" step="1" onchange='createList()'/>
+      <span class="validity"></span>
+    </fieldset>
   </div>
+  <div id='tablesList'></div>
 </div>
 
-<script src='/qrcodejs/jquery.min.js'></script>
-<script src='/qrcodejs/qrcode.min.js'></script>
-<script src='/qrcodejs/qrcode.js'></script>
 <script src='setup.js'></script>

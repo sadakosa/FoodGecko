@@ -33,6 +33,7 @@ app.get('/login', controller.getLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
 app.get('/setup', controller.setup);
+app.get('/outlet/:id', controller.getQrcodes);
 
 app.get('/', (req, res) => { res.render('home') });
 app.get('*', (req, res) => { res.sendStatus(404) });

@@ -1,27 +1,29 @@
-#bigBox {
-    width: 500px;
-    height: 500px;
-    border: 1px solid black
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
 }
 
-.smallBox {
-    border: 1px solid black;
+input,
+label {
+    width: 43%;
+}
+
+input {
+    margin: 1rem 0;
+}
+
+label {
     display: inline-block;
-    vertical-align: top;
+    font-size: .8rem;
 }
 
-.selectedBox {
-    background-color: #38BD2C
+input:invalid + span:after {
+    content: '✖';
+    color: #f00;
+    padding-left: 5px;
 }
 
-.highlightedBox {
-    background-color: #9CE895
-}
-
-.selectedWall {
-    background-color: #4a4b4c
-}
-
-.highlightedWall {
-    background-color: #b5b8bc
+input:valid + span:after {
+    content: '✓';
+    color: #26b72b;
+    padding-left: 5px;
 }

@@ -41,6 +41,10 @@ module.exports = {
 
 	setup : (req, res) => {
 		res.render('setup')
-	}
+	},
 
+	getQrcodes : (req, res) => {
+		let id = req.params.id
+		res.render('qrCodes');
+	}
 }
