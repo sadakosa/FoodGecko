@@ -32,7 +32,8 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/login', controller.getLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
-app.get('/setup', controller.setup);
+app.get('/setup', controller.getSetup);
+app.post('/setup', controller.postSetup);
 app.get('/outlet/:id', controller.getQrcodes);
 
 app.get('/', (req, res) => { res.render('home') });

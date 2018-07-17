@@ -39,8 +39,12 @@ module.exports = {
     	}); // FIRST SQL QUERY
 	},
 
-	setup : (req, res) => {
+	getSetup : (req, res) => {
 		res.render('setup')
+	},
+
+	postSetup : (req, res) => {
+		const queryString = 'INSERT INTO'
 	},
 
 	getQrcodes : (req, res) => {
