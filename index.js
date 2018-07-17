@@ -1,8 +1,9 @@
 // NPMS
 const express = require('express');
 const handlebars = require('express-handlebars');
-const sha256 = require('js-sha256');
 const cookieParser = require('cookie-parser');
+const sha256 = require('js-sha256');
+
 
 // IMPORTS & Declarations
 const controller = require('./controller');
@@ -26,14 +27,18 @@ app.use(express.static('public'));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-///////////////////
+//////////////////
 //    ROUTES    //
 //////////////////
 app.get('/login', controller.getLogin);
+app.post('/login', controller.postLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
+app.get('/logout', controller.getLogout)
 
-app.get('/', (req, res) => { res.render('home') });
+//app.post('/createmenu', controller.getCreateMenu);
+
+app.get('/', controller.getRoot);
 app.get('*', (req, res) => { res.sendStatus(404) });
 
 // LISTEN
