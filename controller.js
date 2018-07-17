@@ -50,6 +50,16 @@ module.exports = {
       		
       		res.render('register', {message:"E-mail is already in use."})
     		} 
+    	}); // FIRST SQL QUERY
+	},
+
+	setup : (req, res) => {
+		res.render('setup')
+	},
+
+	getQrcodes : (req, res) => {
+		let id = req.params.id
+		res.render('qrCodes');
     	});
 	},
 
@@ -73,7 +83,7 @@ module.exports = {
             		res.render('login', { message : "Wrong password, please try again."} );
             		//Fail - Wrong pass
         		}
-        	}
-		});
+        }
+	  });
 	}
 }

@@ -34,9 +34,12 @@ app.get('/login', controller.getLogin);
 app.post('/login', controller.postLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
+
+app.get('/setup', controller.setup);
+app.get('/outlet/:id', controller.getQrcodes);
+
 app.get('/logout', controller.getLogout)
 
-//app.post('/createmenu', controller.getCreateMenu);
 
 app.get('/', controller.getRoot);
 app.get('*', (req, res) => { res.sendStatus(404) });

@@ -1,0 +1,27 @@
+#bigBox {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black
+}
+
+.smallBox {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.selectedBox {
+    background-color: #38BD2C
+}
+
+.highlightedBox {
+    background-color: #9CE895
+}
+
+.selectedWall {
+    background-color: #4a4b4c
+}
+
+.highlightedWall {
+    background-color: #b5b8bc
+}
