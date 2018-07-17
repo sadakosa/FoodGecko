@@ -35,7 +35,7 @@ app.post('/login', controller.postLogin);
 app.get('/register', controller.getRegister);
 app.post('/register', controller.postRegister);
 
-app.get('/setup', controller.setup);
+app.get('/setup', controller.getSetup);
 app.get('/outlet/:id', controller.getQrcodes);
 
 app.get('/logout', controller.getLogout)
