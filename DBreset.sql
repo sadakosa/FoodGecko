@@ -18,15 +18,34 @@ DROP TABLE outlets;
 CREATE TABLE outlets (
     user_id INT NOT NULL,
     outlet_id SERIAL PRIMARY KEY,
-    outlet_type VARCHAR(18) NOT NULL,
     outlet_name TEXT NOT NULL,
     outlet_address TEXT NOT NULL,
     outlet_GST BOOLEAN NOT NULL,
     outlet_tax INT
 );
 
+DROP TABLE tables;
+CREATE TABLE tables (
+    table_id SERIAL PRIMARY KEY,
+    outlet_id INT NOT NULL
+);
+
+DROP TABLE orders;
+CREATE TABLE orders (
+    order_id SERIAL PRIMARY KEY,
+    table_id INT NOT NULL,
+);
+
+CREATE TABLE order_items (
+    order_id INT NOT NULL,
+    item_id INT NOT NULL,
+    item_quantity INT NOT NULL
+
+)
+
 DROP TABLE items;
 CREATE TABLE items (
+    user_id INT NOT NULL,
     item_id SERIAL PRIMARY KEY,
     item_name TEXT NOT NULL,
     item_description TEXT NOT NULL,

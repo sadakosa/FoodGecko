@@ -21,9 +21,9 @@ module.exports = function (db) {
 	}
 
 	return {
-		getSetup: getSetup,
-		postSetup: postSetup,
-		getQrcodes: getQrcodes,
+		getSetup,
+		postSetup,
+		getQrcodes,
 		getAddOutlet
 	}
 }
