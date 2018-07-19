@@ -5,7 +5,7 @@ module.exports = function (db) {
 
 	function getRoot (req, res) {
 		if (req.cookies.user_name) {
-			res.render('home', {user_name : req.cookies.user_name});
+			res.render('dashboard', {user_name : req.cookies.user_name});
 		} else {
 			res.render('home');
 		}

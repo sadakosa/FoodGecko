@@ -13,7 +13,7 @@ module.exports = (app, db) => {
 	//SETUP OF RESTAURANT
 	app.get('/setup', apps.getSetup);
 	app.post('/setup', apps.postSetup);
-	// app.get('/setup', controller.setup);
+	app.get('/outlet/new', apps.getAddOutlet);
 	app.get('/outlet/:id', apps.getQrcodes);
 
 
