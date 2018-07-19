@@ -1,4 +1,5 @@
 const pg = require('pg');
+const url = require('url');
 
 const config = {
   user: 'master',
@@ -8,12 +9,21 @@ const config = {
   port: 5432
 };
 
-const pool = new pg.Pool(config);
+const poolObj = new pg.Pool(config);
 
-pool.on('error', function (err) {
+poolObj.on('error', function (err) {
   console.log('idle client error', err.message, err.stack);
 });
 
+
+// const userModel = require('./models/user');
+// const appleModel = require('./models/app');
+// const userObj = userModel(poolObj);
+// const appleObj = appleModel(poolObj);
+
+
 module.exports = {
-	pool : pool
+	pool : poolObj,
+	// user: userObj,
+	// apple: appleObj
 }

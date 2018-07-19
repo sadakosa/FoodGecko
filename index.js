@@ -6,7 +6,6 @@ const sha256 = require('js-sha256');
 
 
 // IMPORTS & Declarations
-const controller = require('./controller');
 const db = require('./db');
 const app = express();
 
@@ -30,21 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 //////////////////
 //    ROUTES    //
 //////////////////
-app.get('/login', controller.getLogin);
-app.post('/login', controller.postLogin);
-app.get('/register', controller.getRegister);
-app.post('/register', controller.postRegister);
-
-app.get('/setup', controller.getSetup);
-//app.post('/setup', controller.postSetup);
-
-app.get('/setup', controller.getSetup);
-app.get('/outlet/:id', controller.getQrcodes);
-
-app.get('/logout', controller.getLogout)
-
-app.get('/', controller.getRoot);
-app.get('*', (req, res) => { res.sendStatus(404) });
+require('./routes.js')(app, db);
 
 // LISTEN
 app.listen(3000, () => {console.log('Listen port: 3000')} );
