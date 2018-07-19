@@ -9,44 +9,52 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 	<link rel="stylesheet" type="text/css" href="setup.css">
 	<style type="text/css">
-		#topheading {
-			margin-left: 5px;
-		}
-	</style>
+	#topheading {
+		margin-left: 5px;
+	}
+
+	#mainContainer {
+		margin-top: 80px;
+		background-color: #c8c8d8;
+		padding: 8px;
+		border-radius: 18px: 
+	}
+</style>
 </head>
 <body>
-<div class="ui fixed menu">
-	<div class="ui container">
-		<a href="/" class="header item">
-			<img class="logo" src="/images/logo.png">
-			<p id="topheading">Welcome!</p>
-		</a>
+	<div class="ui fixed menu">
+		<div class="ui container">
+			<a href="/" class="header item">
+				<img class="logo" src="/images/logo.png">
+				<p id="topheading">Welcome!</p>
+			</a>
+		</div>
+		<div class="right menu">
+			{{#if user_name}}
+
+			<div class="ui simple dropdown item">
+				{{user_name}} <i class="dropdown icon"></i>
+				<div class="menu">
+					<a class="item" href="/">Dashboard</a>
+					<a class="item" href="/profile">Profile</a>
+					<a class="item" href="/inbox">Inbox</a>
+					<a class="item" href="/howto">Help</a>
+				</div>
+			</div>
+
+			<a href="/logout" class="header item">Logout</a>
+
+			{{else}}
+
+			<a href="/register" class="header item">Register</a>
+			<a href="/login" class="header item"> Login </a>
+			{{/if}}
+		</div>
 	</div>
-	<div class="right menu">
-		{{#if user_name}}
 
-		<div class="ui simple dropdown item">
-        {{user_name}} <i class="dropdown icon"></i>
-        <div class="menu">
-          <a class="item" href="/">Dashboard</a>
-          <a class="item" href="/profile">Profile</a>
-          <a class="item" href="/inbox">Inbox</a>
-          <a class="item" href="/howto">Help</a>
-        </div>
-   		</div>
-
-		<a href="/logout" class="header item">Logout</a>
-
-		{{else}}
-
-		<a href="/register" class="header item">Register</a>
-		<a href="/login" class="header item"> Login </a>
-		{{/if}}
+	<div class='ui container' id='mainContainer'>
+		{{{body}}}
 	</div>
-</div>
-<br><br><br>
-
-{{{body}}}
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity = "sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>

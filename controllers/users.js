@@ -74,21 +74,16 @@ module.exports = function (db) {
             		res.render('login', { message : "Wrong password, please try again."} );
             		//Fail - Wrong pass
         		}
-        }
-	  });
+       		}
+		});
 	}
 
-
-
-
-
-
 	return {
-		getRoot: getRoot,
-		getLogout: getLogout,
-		getLogin: getLogin,
-		getRegister: getRegister,
-		postRegister: postRegister,
-		postLogin: postLogin
+		getRoot,
+		getLogout,
+		getLogin,
+		getRegister,
+		postRegister,
+		postLogin
 	}
 }
