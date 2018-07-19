@@ -18,10 +18,10 @@ module.exports = (app, db) => {
 
 
 	//SETUP OF MENU
-	app.get('/getItems', app.getItems)
-	app.post('/createItems', app.createItems)
-	app.post('/createItems', app.createItems)
-	app.get('/createMenu', app.createMenu)
+	app.get('/getItems', apps.getItems)
+	// app.post('/createItems', app.createItems)
+	// app.post('/createItems', apps.createItems)
+	// app.get('/createMenu', apps.createMenu)
 
 	app.get('/', users.getRoot);
 	app.get('*', (req, res) => { res.sendStatus(404) });	

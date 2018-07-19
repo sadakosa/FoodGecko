@@ -20,10 +20,32 @@ module.exports = function (db) {
 		}
 	}
 
+	function getItems (req, res) {
+		if (req.cookies.user_name) {
+			const queryString = 'SELECT * FROM items WHERE user_id = $1';
+			let values = [req.cookies.user_id];
+
+			db.pool.query(queryString, values, (err, result) => {
+				if(err) {
+					res.send('db error: ' + err.message);
+				} else {
+					console.log(result);
+					// res.render('menuNitems/items.handlebars', {result: result});
+					res.render('menuNitems/items.handlebars', {result: result});
+				}
+			});
+			
+
+		} else {
+			res.render('home');
+		}
+	}
+
 	return {
 		getSetup: getSetup,
 		postSetup: postSetup,
 		getQrcodes: getQrcodes,
-		getAddOutlet
+		getAddOutlet,
+		getItems
 	}
 }

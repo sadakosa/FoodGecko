@@ -27,9 +27,12 @@ CREATE TABLE outlets (
 
 DROP TABLE items;
 CREATE TABLE items (
+    user_id INT NOT NULL,
     item_id SERIAL PRIMARY KEY,
     item_name TEXT NOT NULL,
     item_description TEXT NOT NULL,
     item_price DECIMAL(19,2),
     item_imglink VARCHAR NOT NULL
 );
+
+INSERT INTO items (user_id, item_name, item_description, item_price, item_imglink) VALUES ($1, $2, $3, $4, $5);
