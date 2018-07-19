@@ -12,9 +12,18 @@ module.exports = function (db) {
 		res.render('qrCodes');
 	}
 
+	function getAddOutlet (req, res) {
+		if (req.cookies.user_name) {
+			res.render('outlets/addOutlet', {user_name : req.cookies.user_name});
+		} else {
+			res.render('home');
+		}
+	}
+
 	return {
 		getSetup: getSetup,
 		postSetup: postSetup,
-		getQrcodes: getQrcodes
+		getQrcodes: getQrcodes,
+		getAddOutlet
 	}
 }
