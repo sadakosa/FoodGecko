@@ -1,6 +1,6 @@
 <div class="ui middle aligned center aligned grid">
-	
 	<div class="column eight wide" id='body'>
+		<h3>Setup outlet</h3>
 		<form action='/setup' method='POST'>
 
 			<input type="hidden" name='user_id' value={{user_id}}>
@@ -19,10 +19,16 @@
 				<input type="text" name='outlet_address' placeholder="8 Bishan Rd">
 			</div><br>
 
-			<div class="ui fluid checkbox">
-				<input type="checkbox" name="outlet_GST">
-				<label>GST</label>
+			<div class="ui fluid labeled input">
+				<div class="ui label">
+					Service charge: 
+				</div>
 				<input type="text" name='outlet_tax' placeholder="Default 0 %">
+			</div><br>
+
+			<div class="ui fluid checkbox">
+				<label>GST 7% : </label>
+				<input type="checkbox" name="outlet_GST">
 			</div>
 
 			<input type="submit" value="Submit">
