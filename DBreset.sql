@@ -52,3 +52,5 @@ CREATE TABLE items (
     item_price DECIMAL(19,2),
     item_imglink VARCHAR NOT NULL
 );
+
+INSERT INTO items (user_id, item_name, item_description, item_price, item_imglink) VALUES ($1, $2, $3, $4, $5);
