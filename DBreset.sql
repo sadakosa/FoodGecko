@@ -40,7 +40,6 @@ CREATE TABLE order_items (
     order_id INT NOT NULL,
     item_id INT NOT NULL,
     item_quantity INT NOT NULL
-
 )
 
 DROP TABLE items;

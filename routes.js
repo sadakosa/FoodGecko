@@ -1,3 +1,6 @@
+let multer = require('./multerConfig.js').multer;
+let multerConfig = require('./multerConfig.js').multerConfig;
+
 module.exports = (app, db) => {
 	const users = require('./controllers/users.js')(db);
 	const apps = require('./controllers/apps.js')(db);
@@ -9,7 +12,7 @@ module.exports = (app, db) => {
 	app.post('/register', users.postRegister);
 	app.get('/logout', users.getLogout)
 
-
+	
 	//SETUP OF RESTAURANT
 	app.get('/setup', apps.getSetup);
 	app.post('/setup', apps.postSetup);
@@ -18,10 +21,12 @@ module.exports = (app, db) => {
 
 
 	//SETUP OF MENU
-	app.get('/getItems', apps.getItems)
-	// app.post('/createItems', app.createItems)
+	app.get('/getItems', apps.getItems);
+	app.get('/createItem', apps.createItemForm);
+	app.post('/createItem', multer(multerConfig).single('photo'), apps.createItem);
 	// app.post('/createItems', apps.createItems)
 	// app.get('/createMenu', apps.createMenu)
+	// app.post('/createMenu', multer(multerConfig).single('photo'), apps.createMenu);
 
 	app.get('/', users.getRoot);
 	app.get('*', (req, res) => { res.sendStatus(404) });	

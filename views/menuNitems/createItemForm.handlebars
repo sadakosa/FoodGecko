@@ -1,0 +1,43 @@
+<style type="text/css">
+body {
+    background-color: #DADADA;
+}
+body > .grid {
+    height: 100%;
+}
+.image {
+    margin-top: -100px;
+}
+.column {
+    max-width: 450px;
+}
+</style>
+
+<div class="ui middle aligned center aligned grid">
+  <div class="column ten wide" id='body'>
+    
+    <h1>hello</h1>
+    <form enctype="multipart/form-data" action="/createItem" method="POST">
+        <div class="ui input">
+            <input type="text" placeholder="Dish Name">
+        </div> 
+        <br>
+        <br>
+        <div class="ui right labeled input">
+            <label for="amount" class="ui label">$</label>
+            <input type="text" placeholder="Dish Price" i
+            d="amount">
+            {{!-- <div class="ui basic label">.00</div> --}}
+        </div>
+        <h3>Image Of Dish</h3>
+        <input type="file" name="photo">
+        <input type="submit" class="btn btn-primary" value="Upload Photo">
+    </form>
+
+    <form>
+    </form>
+  </div>
+  <div id='itemsList'></div>
+</div>
+
+<script src='items.js'></script>

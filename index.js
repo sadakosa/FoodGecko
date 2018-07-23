@@ -10,6 +10,21 @@ const db = require('./db');
 const app = express();
 
 
+
+//Cloudinary Module to Save Images
+require('dotenv').config();
+//load module
+var cloudinary = require('cloudinary');
+
+//post route
+// app.post('/', upload.single('myFile'), function(req, res) {
+//   cloudinary.uploader.upload(req.file.path, function(result) {
+//     res.send(result);
+//   });
+// });
+
+
+
 // Set Handlebars to be the default view engine
 const handlebarsConfig = {
    extname: '.handlebars',
