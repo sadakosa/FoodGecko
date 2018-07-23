@@ -16,11 +16,16 @@ module.exports = (app, db) => {
 	//SETUP OF RESTAURANT
 	app.get('/setup', apps.getSetup);
 	app.post('/setup', apps.postSetup);
-	app.get('/outlet/new', apps.getAddOutlet);
-	app.get('/outlet/:id', apps.getQrcodes);
+	app.get('/:userName/tables', apps.getQRgen);
+	
+	//SETUP OF MENU
+
+	//app.get('/outlet/new', apps.getAddOutlet);
+	//app.get('/outlet/:id', apps.getQrcodes);
 
 
 	//SETUP OF MENU
+
 	app.get('/getItems', apps.getItems);
 	app.get('/createItem', apps.createItemForm);
 	app.post('/createItem', multer(multerConfig).single('photo'), apps.createItem);
