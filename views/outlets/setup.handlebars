@@ -1,9 +1,9 @@
 <div class="ui middle aligned center aligned grid">
-	
 	<div class="column eight wide" id='body'>
+		<h3>Setup outlet</h3>
 		<form action='/setup' method='POST'>
 
-			<input type="hidden" name='user_id' value={{user_id}}>
+			<input type="hidden" name='user_id' value='{{user_id}}'>
 
 			<div class="ui fluid labeled input">
 				<div class="ui label">
@@ -19,13 +19,21 @@
 				<input type="text" name='outlet_address' placeholder="8 Bishan Rd">
 			</div><br>
 
-			<div class="ui fluid checkbox">
-				<input type="checkbox" name="outlet_GST">
-				<label>GST</label>
-				<input type="text" name='outlet_tax' placeholder="Default 0 %">
-			</div>
+			<div class="ui fluid labeled input">
+				<div class="ui label">
+					Num of Tables: 
+				</div>
+				<input type="text" name='table_count' placeholder="10">
+			</div><br>
 
-			<input type="submit" value="Submit">
+			<div class="ui fluid labeled input">
+				<div class="ui label">
+					Service charge: 
+				</div>
+				<input type="text" name='outlet_tax' placeholder="Default 0 %">
+			</div><br><br>
+
+			<button class="ui fluid large submit button" type="submit">Submit</button>
 		</form>
 	</div>
 </div>

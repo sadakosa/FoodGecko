@@ -20,7 +20,7 @@ CREATE TABLE outlets (
     outlet_id SERIAL PRIMARY KEY,
     outlet_name TEXT NOT NULL,
     outlet_address TEXT NOT NULL,
-    outlet_GST BOOLEAN NOT NULL,
+    table_count INT NOT NULL,
     outlet_tax INT
 );
 
