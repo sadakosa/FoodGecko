@@ -13,12 +13,9 @@ module.exports = (app, db) => {
 	//SETUP OF RESTAURANT
 	app.get('/setup', apps.getSetup);
 	app.post('/setup', apps.postSetup);
-	app.get('/outlet/new', apps.getAddOutlet);
-	app.get('/outlet/:id', apps.getQrcodes);
-
-
-	//SETUP OF MENU
+	app.get('/:userName/tables', apps.getQRgen);
 	
+	//SETUP OF MENU
 
 	app.get('/', users.getRoot);
 	app.get('*', (req, res) => { res.sendStatus(404) });	

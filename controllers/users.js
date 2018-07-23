@@ -15,6 +15,7 @@ module.exports = function (db) {
 		res.clearCookie('email');
 		res.clearCookie('loggedin');
 		res.clearCookie('user_name');
+		res.clearCookie('user_id');
 		res.redirect('/');
 	}
 
@@ -67,7 +68,8 @@ module.exports = function (db) {
 				if (result.rows[0].pwd_hash === sha256(req.body.password) ) {
 		            res.cookie('loggedin', true);
 		            res.cookie('email', result.rows[0].email);
-		            res.cookie('user_name', result.rows[0].user_name);
+					res.cookie('user_name', result.rows[0].user_name);
+					res.cookie('user_id	', result.rows[0].id);
 		            res.redirect('/'); //Pass - Cookie! - Redirect.
 				} else {
             		res.render('login', { message : "Wrong password, please try again."} );
