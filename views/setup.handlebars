@@ -1,29 +1,59 @@
+<style type="text/css">
+body {
+  background-color: #DADADA;
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}
+</style>
 
-  <style type="text/css">
-    body {
-      background-color: #DADADA;
-    }
-    body > .grid {
-      height: 100%;
-    }
-    .image {
-      margin-top: -100px;
-    }
-    .column {
-      max-width: 450px;
-    }
-  </style>
 
 <div class="ui middle aligned center aligned grid">
   <div class="column ten wide" id='body'>
-    <fieldset>
-      <label for="tableNo">Number of Tables:</label>
-      <input type="number" id="tableNo" name="height" step="1" onchange='createList()'/>
-      <span class="validity"></span>
-      <div class="ui button">Save</div>
-    </fieldset>
-  </div>
-  <div id='tablesList'></div>
-</div>
+    
+    <form action='/setup' method='POST'>
+      <input type="hidden" name='entity_type' value='outlet'>
+      <input type="hidden" name='user_id' value={{user_id}}>
 
-<script src='setup.js'></script>
+      <div class="ui labeled input">
+        <div class="ui label">
+          Outlet name: 
+        </div>
+        <input type="text" name='entity_name' placeholder="J8 Pastamania">
+        <br>
+      </div>
+        
+      <div class="ui labeled input">
+        <div class="ui label">
+          Address: 
+        </div>
+        <input type="text" name='entity_address' placeholder="8 Bishan Rd">
+        <br>
+      </div>
+
+      <div class="ui checkbox">
+        <input type="checkbox" name="entity_GST">
+        <label>GST</label>
+      </div>
+      
+      <input type="submit" value="Submit">
+      </form>
+      
+
+      <fieldset>
+        <label for="tableNo">Number of Tables:</label>
+        <input type="number" id="tableNo" name="height" step="1" onchange='createList()'/>
+        <span class="validity"></span>
+        <div class="ui button">Save</div>
+      </fieldset>
+    </div>
+    <div id='tablesList'></div>
+  </div>
+
+  <script src='setup.js'></script>

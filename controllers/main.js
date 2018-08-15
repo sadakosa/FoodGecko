@@ -1,11 +1,11 @@
 const sha256 = require('js-sha256');
-const db = require('./db');
+const db = require('../db');
 
 module.exports = {
 
 	getRoot : (req, res) => {
 		if (req.cookies.user_name) {
-			res.render('home', {user_name : req.cookies.user_name});
+			res.render('dashboard', {user_name : req.cookies.user_name});
 		} else {
 			res.render('home');
 		}
@@ -54,12 +54,15 @@ module.exports = {
 	},
 
 	getSetup : (req, res) => {
-		res.render('setup');
+		const queryString = "SELECT * FROM users WHERE email = '" + req.cookies.email + "'";
+		db.pool.query(queryString, (err, result) => {
+			res.render('setup', {user_id : result.rows[0].id} );
+		});
 	},
 
-	getQrcodes : (req, res) => {
-		let id = req.params.id
-		res.render('qrCodes');
+	postSetup : (req, res) => {
+		console.log(req.body);
+		res.redirect('/');
 	},
 
 	postLogin : (req, res) => {

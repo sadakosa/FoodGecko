@@ -6,7 +6,8 @@ const sha256 = require('js-sha256');
 
 
 // IMPORTS & Declarations
-const controller = require('./controller');
+const main = require('./controllers/main');
+const outlet = require('./controllers/outlet');
 const db = require('./db');
 const app = express();
 
@@ -30,20 +31,19 @@ app.use(express.urlencoded({ extended: true }));
 //////////////////
 //    ROUTES    //
 //////////////////
-app.get('/login', controller.getLogin);
-app.post('/login', controller.postLogin);
-app.get('/register', controller.getRegister);
-app.post('/register', controller.postRegister);
+app.get('/login', main.getLogin);
+app.post('/login', main.postLogin);
+app.get('/register', main.getRegister);
+app.post('/register', main.postRegister);
 
-app.get('/setup', controller.getSetup);
-//app.post('/setup', controller.postSetup);
+app.get('/setup', main.getSetup);
+app.post('/setup', main.postSetup);
 
-app.get('/setup', controller.getSetup);
-app.get('/outlet/:id', controller.getQrcodes);
+app.get('/outlet/:id', outlet.getQrcodes);
 
-app.get('/logout', controller.getLogout)
+app.get('/logout', main.getLogout)
 
-app.get('/', controller.getRoot);
+app.get('/', main.getRoot);
 app.get('*', (req, res) => { res.sendStatus(404) });
 
 // LISTEN
